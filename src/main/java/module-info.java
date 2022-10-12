@@ -7,9 +7,10 @@ module edu.hanover.schedulevisualizer {
     requires com.dlsc.formsfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
-//    requires eu.hansolo.tilesfx;
     requires javafx.graphics;
 
-    opens edu.hanover.schedulevisualizer to javafx.fxml;
+    opens edu.hanover.schedulevisualizer to javafx.fxml, javafx.graphics;
     exports edu.hanover.schedulevisualizer;
+    exports edu.hanover.schedulevisualizer.ui;
+    opens edu.hanover.schedulevisualizer.ui to javafx.fxml, javafx.graphics;
 }

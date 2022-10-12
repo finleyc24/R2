@@ -1,4 +1,4 @@
-package edu.hanover.schedulevisualizer;
+package edu.hanover.schedulevisualizer.ui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
