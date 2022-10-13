@@ -18,7 +18,19 @@
             <Rectangle width="100" height="30" fill="#90ddff"/>
             <Label>Monday</Label>
         </StackPane>
-        <VBox id="slot1Monday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+        <VBox id="slot1Monday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;" >
+            <padding>
+                <Insets top="2" bottom="2"/>
+            </padding>
+            <StackPane>
+                <Rectangle  width="90" height="25" fill="bisque" arcHeight="25" arcWidth="20"/>
+                <Label>CS 220</Label>
+            </StackPane>
+            <StackPane>
+                <Rectangle width="90" height="25" fill="#44b435" arcHeight="25" arcWidth="20"/>
+                <Label>MAT 243</Label>
+            </StackPane>
+
 
         </VBox>
         <VBox id="slot2Monday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
