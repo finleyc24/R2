@@ -18,30 +18,108 @@
             <Rectangle width="100" height="30" fill="#90ddff"/>
             <Label>Monday</Label>
         </StackPane>
+        <VBox id="slot1Monday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot2Monday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot3Monday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot4Monday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot5Monday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot6Monday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
     </VBox>
     <VBox id="columnTuesday">
         <StackPane style="-fx-border-color: black; -fx-border-width: 1;">
             <Rectangle width="100" height="30" fill="#90ddff"/>
             <Label>Tuesday</Label>
         </StackPane>
+        <VBox id="slot7Tuesday" prefHeight="150" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot8Tuesday" prefHeight="150" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot9Tuesday" prefHeight="150" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot10Tuesday" prefHeight="150" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
     </VBox>
     <VBox id="columnWednesday">
         <StackPane style="-fx-border-color: black; -fx-border-width: 1;">
             <Rectangle width="100" height="30" fill="#90ddff"/>
             <Label>Wednesday</Label>
         </StackPane>
+        <VBox id="slot1Wednesday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot2Wednesday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot3Wednesday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot4Wednesday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot5Wednesday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot6Wednesday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
     </VBox>
     <VBox id="columnThursday">
         <StackPane style="-fx-border-color: black; -fx-border-width: 1;">
             <Rectangle width="100" height="30" fill="#90ddff"/>
             <Label>Thursday</Label>
         </StackPane>
+        <VBox id="slot7Thursday" prefHeight="150" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot8Thursday" prefHeight="150" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot9Thursday" prefHeight="150" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot10Thursday" prefHeight="150" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
     </VBox>
     <VBox id="columnFriday">
         <StackPane style="-fx-border-color: black; -fx-border-width: 1;">
             <Rectangle width="100" height="30" fill="#90ddff"/>
             <Label>Friday</Label>
         </StackPane>
+        <VBox id="slot1Friday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot2Friday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot3Friday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot4Friday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot5Friday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
+        <VBox id="slot6Friday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+
+        </VBox>
     </VBox>
 
     <Label fx:id="welcomeText" id="welcomeLabel"/>
