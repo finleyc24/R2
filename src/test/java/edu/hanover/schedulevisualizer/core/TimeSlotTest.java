@@ -17,4 +17,14 @@ public class TimeSlotTest {
         assertThat(timeslot1.slotnum, equalTo(slotnum));
         assertThat(timeslot1.weekdayList, equalTo(weekdayList));
     }
+
+//    @Test
+//    public void getStartTimeWorks() {
+//
+//    }
+
+    @Test
+    public void timeSlotIsCorrect() {
+
+    }
 }
