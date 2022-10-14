@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
 public class TimeSlotTest {
     @Test
@@ -13,7 +14,7 @@ public class TimeSlotTest {
         List<Weekday> weekdayList = Weekday.MWF();
         int slotnum = 1;
         TimeSlot timeslot1 = new TimeSlot(weekdayList, slotnum);
-        assertEquals(slotnum, timeslot1.slotnum);
-        assertEquals(weekdayList, timeslot1.weekdayList);
+        assertThat(timeslot1.slotnum, equalTo(slotnum));
+        assertThat(timeslot1.weekdayList, equalTo(weekdayList));
     }
 }
