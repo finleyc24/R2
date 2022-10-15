@@ -13,4 +13,6 @@ module edu.hanover.schedulevisualizer {
     exports edu.hanover.schedulevisualizer;
     exports edu.hanover.schedulevisualizer.ui;
     opens edu.hanover.schedulevisualizer.ui to javafx.fxml, javafx.graphics;
+    exports edu.hanover.schedulevisualizer.ui.elements;
+    opens edu.hanover.schedulevisualizer.ui.elements to javafx.fxml, javafx.graphics;
 }

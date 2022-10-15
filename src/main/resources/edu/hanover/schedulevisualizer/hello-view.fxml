@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
+<?import edu.hanover.schedulevisualizer.ui.elements.CourseEntry?>
 <HBox alignment="CENTER_LEFT" xmlns:fx="http://javafx.com/fxml"
       fx:controller="edu.hanover.schedulevisualizer.ui.HelloController">
     <padding>
@@ -22,16 +23,8 @@
             <padding>
                 <Insets top="2" bottom="2"/>
             </padding>
-            <StackPane>
-                <Rectangle  width="90" height="25" fill="bisque" arcHeight="25" arcWidth="20"/>
-                <Label>CS 220</Label>
-            </StackPane>
-            <StackPane>
-                <Rectangle width="90" height="25" fill="#44b435" arcHeight="25" arcWidth="20"/>
-                <Label>MAT 243</Label>
-            </StackPane>
-
-
+            <CourseEntry text="CS 220" color="bisque"/>
+            <CourseEntry text="MAT 243" color="#44b435"/>
         </VBox>
         <VBox id="slot2Monday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
 
