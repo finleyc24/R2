@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import edu.hanover.schedulevisualizer.ui.elements.CourseEntry?>
+<?import edu.hanover.schedulevisualizer.ui.elements.TimeSlot?>
 <HBox alignment="CENTER_LEFT" xmlns:fx="http://javafx.com/fxml"
       fx:controller="edu.hanover.schedulevisualizer.ui.HelloController">
     <padding>
@@ -19,112 +20,60 @@
             <Rectangle width="100" height="30" fill="#90ddff"/>
             <Label>Monday</Label>
         </StackPane>
-        <VBox id="slot1Monday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;" >
-            <padding>
-                <Insets top="2" bottom="2"/>
-            </padding>
+        <TimeSlot id="slot1Monday" day="MWF">
             <CourseEntry text="CS 220" color="bisque"/>
             <CourseEntry text="MAT 243" color="#44b435"/>
-        </VBox>
-        <VBox id="slot2Monday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
+        </TimeSlot>
 
-        </VBox>
-        <VBox id="slot3Monday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
-        <VBox id="slot4Monday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
-        <VBox id="slot5Monday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
-        <VBox id="slot6Monday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
+        <TimeSlot id="slot2Monday" day="MWF"></TimeSlot>
+        <TimeSlot id="slot3Monday" day="MWF"></TimeSlot>
+        <TimeSlot id="slot4Monday" day="MWF"></TimeSlot>
+        <TimeSlot id="slot5Monday" day="MWF"></TimeSlot>
+        <TimeSlot id="slot6Monday" day="MWF"></TimeSlot>
     </VBox>
     <VBox id="columnTuesday">
         <StackPane style="-fx-border-color: black; -fx-border-width: 1;">
             <Rectangle width="100" height="30" fill="#90ddff"/>
             <Label>Tuesday</Label>
         </StackPane>
-        <VBox id="slot7Tuesday" prefHeight="150" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
-        <VBox id="slot8Tuesday" prefHeight="150" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
-        <VBox id="slot9Tuesday" prefHeight="150" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
-        <VBox id="slot10Tuesday" prefHeight="150" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
+        <TimeSlot id="slot7Tuesday" day="TR"></TimeSlot>
+        <TimeSlot id="slot8Tuesday" day="TR"></TimeSlot>
+        <TimeSlot id="slot9Tuesday" day="TR"></TimeSlot>
+        <TimeSlot id="slot10Tuesday" day="TR"></TimeSlot>
     </VBox>
     <VBox id="columnWednesday">
         <StackPane style="-fx-border-color: black; -fx-border-width: 1;">
             <Rectangle width="100" height="30" fill="#90ddff"/>
             <Label>Wednesday</Label>
         </StackPane>
-        <VBox id="slot1Wednesday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
-        <VBox id="slot2Wednesday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
-        <VBox id="slot3Wednesday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
-        <VBox id="slot4Wednesday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
-        <VBox id="slot5Wednesday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
-        <VBox id="slot6Wednesday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
+        <TimeSlot id="slot1Wednesday" day="MWF"></TimeSlot>
+        <TimeSlot id="slot2Wednesday" day="MWF"></TimeSlot>
+        <TimeSlot id="slot3Wednesday" day="MWF"></TimeSlot>
+        <TimeSlot id="slot4Wednesday" day="MWF"></TimeSlot>
+        <TimeSlot id="slot5Wednesday" day="MWF"></TimeSlot>
+        <TimeSlot id="slot6Wednesday" day="MWF"></TimeSlot>
     </VBox>
     <VBox id="columnThursday">
         <StackPane style="-fx-border-color: black; -fx-border-width: 1;">
             <Rectangle width="100" height="30" fill="#90ddff"/>
             <Label>Thursday</Label>
         </StackPane>
-        <VBox id="slot7Thursday" prefHeight="150" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
-        <VBox id="slot8Thursday" prefHeight="150" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
-        <VBox id="slot9Thursday" prefHeight="150" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
-        <VBox id="slot10Thursday" prefHeight="150" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
+        <TimeSlot id="slot7Thursday" day="TR"></TimeSlot>
+        <TimeSlot id="slot8Thursday" day="TR"></TimeSlot>
+        <TimeSlot id="slot9Thursday" day="TR"></TimeSlot>
+        <TimeSlot id="slot10Thursday" day="TR"></TimeSlot>
     </VBox>
     <VBox id="columnFriday">
         <StackPane style="-fx-border-color: black; -fx-border-width: 1;">
             <Rectangle width="100" height="30" fill="#90ddff"/>
             <Label>Friday</Label>
         </StackPane>
-        <VBox id="slot1Friday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
-        <VBox id="slot2Friday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
-        <VBox id="slot3Friday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
-        <VBox id="slot4Friday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
-        <VBox id="slot5Friday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
-        <VBox id="slot6Friday" prefHeight="100" style="-fx-border-color: black; -fx-border-width: 1;">
-
-        </VBox>
+        <TimeSlot id="slot1Friday" day="MWF"></TimeSlot>
+        <TimeSlot id="slot2Friday" day="MWF"></TimeSlot>
+        <TimeSlot id="slot3Friday" day="MWF"></TimeSlot>
+        <TimeSlot id="slot4Friday" day="MWF"></TimeSlot>
+        <TimeSlot id="slot5Friday" day="MWF"></TimeSlot>
+        <TimeSlot id="slot6Friday" day="MWF"></TimeSlot>
     </VBox>
 
     <Label fx:id="welcomeText" id="welcomeLabel"/>
