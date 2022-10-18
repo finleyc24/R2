@@ -1,43 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
-<?import edu.hanover.schedulevisualizer.core.Weekday?>
-<?import edu.hanover.schedulevisualizer.ui.elements.CourseEntry?>
-<?import edu.hanover.schedulevisualizer.ui.elements.TimeSlot?>
-<?import edu.hanover.schedulevisualizer.ui.elements.DayColumn?>
-<HBox alignment="CENTER_LEFT" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="edu.hanover.schedulevisualizer.ui.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <VBox id="columnMonday">
-        <StackPane style="-fx-border-color: black; -fx-border-width: 1;">
-            <Rectangle width="100" height="30" fill="#90ddff"/>
-            <Label>Monday</Label>
-        </StackPane>
-        <TimeSlot id="slot1Monday" day="MWF">
-            <CourseEntry text="CS 220" color="bisque"/>
-            <CourseEntry text="MAT 243" color="#44b435"/>
-        </TimeSlot>
-
-        <TimeSlot id="slot2Monday" day="MWF"></TimeSlot>
-        <TimeSlot id="slot3Monday" day="MWF"></TimeSlot>
-        <TimeSlot id="slot4Monday" day="MWF"></TimeSlot>
-        <TimeSlot id="slot5Monday" day="MWF"></TimeSlot>
-        <TimeSlot id="slot6Monday" day="MWF"></TimeSlot>
-    </VBox>
-    <DayColumn id="columnTuesday" day="Tuesday"/>
-    <DayColumn id="columnWednesday" day="Wednesday"/>
-    <DayColumn id="columnThursday" day="Thursday"/>
-    <DayColumn id="columnFriday" day="Friday"/>
-
-    <Label fx:id="welcomeText" id="welcomeLabel"/>
-    <Button id="helloButton" text="Hello!" onAction="#onHelloButtonClick"/>
-</HBox>
+<?import edu.hanover.schedulevisualizer.ui.elements.*?>
+<TimeSlotGrid/>
