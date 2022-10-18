@@ -8,9 +8,6 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
-import static edu.hanover.schedulevisualizer.core.Weekday.Thursday;
-import static edu.hanover.schedulevisualizer.core.Weekday.Tuesday;
-
 
 public class DayColumn extends VBox {
     @FXML
@@ -44,19 +41,17 @@ public class DayColumn extends VBox {
     public void setDay(Weekday day) {
         this.day = day;
         label.setText(day.name());
-        addSlots();
+        addSlots(DayPattern.forDay(day));
     }
 
-    private void addSlots() {
-        boolean isTR = day == Tuesday || day == Thursday;
-        int numSlots = isTR ? 4 : 6;
-        String dayPattern = isTR ? "TR" : "MWF";
-        for (int i = 1; i <= numSlots; i++) {
-            TimeSlot timeSlot = new TimeSlot();
-            timeSlot.setDay(dayPattern);
-            timeSlot.setId("slot" + i + getId());
-            getChildren().add(timeSlot);
+    private void addSlots(DayPattern dayPattern) {
+        for (int slotNum = 1; slotNum <= dayPattern.numSlots; slotNum++) {
+            getChildren().add(TimeSlot.forDayPattern(dayPattern, makeSlotID(slotNum)));
         }
+    }
+
+    private String makeSlotID(int slotNum) {
+        return "slot" + slotNum + getId();
     }
 
 }

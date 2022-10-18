@@ -5,10 +5,12 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
+import static edu.hanover.schedulevisualizer.ui.elements.DayPattern.MWF;
+
 
 public class TimeSlot extends VBox {
 
-    private String day;
+    private DayPattern dayPattern;
 
     public TimeSlot() {
         super();
@@ -23,13 +25,20 @@ public class TimeSlot extends VBox {
         }
     }
 
-    public String getDay() {
-        return day;
+    static TimeSlot forDayPattern(DayPattern dayPattern, String slotID) {
+        TimeSlot timeSlot = new TimeSlot();
+        timeSlot.setDayPattern(dayPattern);
+        timeSlot.setId(slotID);
+        return timeSlot;
     }
 
-    public void setDay(String day) {
-        this.day = day;
-        setPrefHeight(day.equals("MWF") ? 100 : 150);
+    public DayPattern getDayPattern() {
+        return dayPattern;
+    }
+
+    public void setDayPattern(DayPattern dayPattern) {
+        this.dayPattern = dayPattern;
+        setPrefHeight(dayPattern == MWF ? 100 : 150);
     }
 
 }

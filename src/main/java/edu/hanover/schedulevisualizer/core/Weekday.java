@@ -30,4 +30,8 @@ public enum Weekday {
         public String toShortString() {
             return this.abbr;
         }
+
+    public boolean isTR() {
+        return this == Tuesday || this == Thursday;
+    }
 }
