@@ -32,13 +32,7 @@ public class TimeSlotGrid extends HBox {
 
     private void addDayColumns() {
         for (Weekday weekday : Weekday.values()) {
-            DayColumn dayColumn = new DayColumn();
-            dayColumn.setDay(weekday);
-            dayColumn.setId("column" + weekday);
-            getChildren().add(dayColumn);
+            getChildren().add(DayColumn.forWeekday(weekday));
         }
-
     }
-
-
 }

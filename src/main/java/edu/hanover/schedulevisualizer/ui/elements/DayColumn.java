@@ -30,6 +30,13 @@ public class DayColumn extends VBox {
         }
     }
 
+    static DayColumn forWeekday(Weekday weekday) {
+        DayColumn dayColumn = new DayColumn();
+        dayColumn.setDay(weekday);
+        dayColumn.setId("column" + weekday);
+        return dayColumn;
+    }
+
     public Weekday getDay() {
         return day;
     }
