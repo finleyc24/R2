@@ -1,13 +1,11 @@
 package edu.hanover.schedulevisualizer.core;
 
-
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 public class WeekdayTest {
 
     public static final Weekday Monday = Weekday.Monday;
@@ -15,7 +13,6 @@ public class WeekdayTest {
     public static final Weekday Wednesday = Weekday.Wednesday;
     public static final Weekday Thursday = Weekday.Thursday;
     public static final Weekday Friday = Weekday.Friday;
-
     @Test
     public void canBuildEachWeekday() {
         assertNotNull(Monday);
