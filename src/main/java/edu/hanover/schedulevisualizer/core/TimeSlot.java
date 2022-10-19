@@ -2,7 +2,7 @@ package edu.hanover.schedulevisualizer.core;
 import java.util.List;
 
 public class TimeSlot {
-    public List<Weekday> weekdayList;
+    private List<Weekday> weekdayList;
     public int slotnum;
 
     public TimeSlot(List<Weekday> weekdayList, int slotnum){
@@ -23,7 +23,7 @@ public class TimeSlot {
             case 8 -> new DayTime(10, 0);
             case 9 -> new DayTime(12, 20);
             case 10->  new DayTime(2, 15);
-            default->  new DayTime(0, 0);
+            default -> throw new RuntimeException("Not a Valid startTime for this class!");
         };
     }
 
@@ -39,14 +39,14 @@ public class TimeSlot {
             case 8 -> new DayTime(11, 45);
             case 9 -> new DayTime(2, 5);
             case 10 -> new DayTime(4, 0);
-            default -> new DayTime(0, 0);
+            default -> throw new RuntimeException("Not a Valid endTime for this class!");
         };
     }
     public List<Weekday> getWeekdayList(){
         switch (slotnum){
             case 1, 2, 3, 4, 5, 6 -> weekdayList = Weekday.MWF();
             case 7, 8, 9, 10 -> weekdayList = Weekday.TR();
-            default -> weekdayList = Weekday.MW();
+            default -> throw new RuntimeException("Not a Valid TimeSlot for the weekday!");
         }
         return weekdayList;
     }

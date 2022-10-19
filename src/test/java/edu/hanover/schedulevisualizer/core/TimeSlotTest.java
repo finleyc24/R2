@@ -1,6 +1,5 @@
 package edu.hanover.schedulevisualizer.core;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -20,7 +19,7 @@ public class TimeSlotTest {
     private static void assertCreatedTimeSlotHasCorrectWeekdaysAndSlotnum(List<Weekday> weekdayList, int slot) {
         TimeSlot timeslot = new TimeSlot(weekdayList, slot);
         assertThat(timeslot.slotnum, equalTo(slot));
-        assertThat(timeslot.weekdayList, equalTo(weekdayList));
+        assertThat(timeslot.getWeekdayList(), equalTo(weekdayList));
     }
 
     @Test
@@ -31,7 +30,10 @@ public class TimeSlotTest {
         assertTimeSlotHasStartTimeOf(4, 12, 0);
         assertTimeSlotHasStartTimeOf(5, 1, 20);
         assertTimeSlotHasStartTimeOf(7, 8, 0);
-        // TODO Add more
+        assertTimeSlotHasStartTimeOf(8,10,0);
+        assertTimeSlotHasStartTimeOf(9,12,20);
+        assertTimeSlotHasStartTimeOf(10, 2,15);
+        assertThrows(RuntimeException.class, () -> { (new TimeSlot(List.of(), 11)).getWeekdayList();});
     }
 
     private void assertTimeSlotHasStartTimeOf(int slotnum, int hours, int minutes) {
@@ -43,20 +45,23 @@ public class TimeSlotTest {
 
     @Test
     void slotNumIsEqualToCorrectEndTime() {
-        TimeSlot timeslot = new TimeSlot(Weekday.MWF(),1);
-        DayTime endTime = new DayTime(9,10);
-        assertThat(timeslot.slotnum, equalTo(1));
-        assertThat(endTime, equalTo(timeslot.getEndTime()));
-        TimeSlot timeslot2 = new TimeSlot(Weekday.TR(),7);
-        DayTime endTime2 = new DayTime(9,45);
-        assertThat(timeslot2.slotnum, equalTo(7));
-        assertThat(endTime2, equalTo(timeslot2.getEndTime()));
+        assertTimeSlotHasEndTimeOf(1,9,10);
+        assertTimeSlotHasEndTimeOf(2,10,30);
+        assertTimeSlotHasEndTimeOf(3,11,50);
+        assertTimeSlotHasEndTimeOf(4,1,10);
+        assertTimeSlotHasEndTimeOf(5,2,30);
+        assertTimeSlotHasEndTimeOf(6,3,50);
+        assertTimeSlotHasEndTimeOf(7,9,45);
+        assertTimeSlotHasEndTimeOf(8, 11,45);
+        assertTimeSlotHasEndTimeOf(9,2,5);
+        assertTimeSlotHasEndTimeOf(10, 4,0);
+        assertThrows(RuntimeException.class, () -> { (new TimeSlot(List.of(), 11)).getWeekdayList();});
+    }
+    private void assertTimeSlotHasEndTimeOf(int slotnum, int hours, int minutes) {
+        List<Weekday> dummyWeekdayList = List.of();
+        TimeSlot timeslot = new TimeSlot(dummyWeekdayList, slotnum);
+        DayTime endTime = new DayTime(hours, minutes);
+        assertThat(timeslot.getEndTime(), equalTo(endTime));
     }
 
-    @Disabled
-    @Test
-    void slotNumIsEqualToCorrectWeekday() {
-        assertThrows(RuntimeException.class, () -> { new TimeSlot(Weekday.TR(), 1); });
-        // TODO: Add more
-    }
 }
