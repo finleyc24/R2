@@ -1,32 +1,43 @@
 package edu.hanover.schedulevisualizer.core;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TimeSlotTest {
     @Test
     public void canCreateTimeSlot() {
-        createTimeSlotAndCheckFields(Weekday.MWF(), 1);
-        createTimeSlotAndCheckFields(Weekday.TR(), 8);
-        createTimeSlotAndCheckFields(Weekday.MWF(), 4);
+        assertCreatedTimeSlotHasCorrectWeekdaysAndSlotnum(Weekday.MWF(), 1);
+        assertCreatedTimeSlotHasCorrectWeekdaysAndSlotnum(Weekday.TR(), 8);
+        assertCreatedTimeSlotHasCorrectWeekdaysAndSlotnum(Weekday.MWF(), 4);
     }
 
-    private static void createTimeSlotAndCheckFields(List<Weekday> weekdayList, int slot) {
-        TimeSlot timeslot1 = new TimeSlot(weekdayList, slot);
-        assertThat(timeslot1.slotnum, equalTo(slot));
-        assertThat(timeslot1.weekdayList, equalTo(weekdayList));
+    private static void assertCreatedTimeSlotHasCorrectWeekdaysAndSlotnum(List<Weekday> weekdayList, int slot) {
+        TimeSlot timeslot = new TimeSlot(weekdayList, slot);
+        assertThat(timeslot.slotnum, equalTo(slot));
+        assertThat(timeslot.weekdayList, equalTo(weekdayList));
     }
 
     @Test
     public void slotNumIsEqualToCorrectStartTime() {
-        TimeSlot timeslot = new TimeSlot(Weekday.MWF(),1);
-        TimeSlot timeslot2 = new TimeSlot(Weekday.TR(),7);
-        DayTime startTime = new DayTime(8,00);
-        assertThat(startTime, equalTo(timeslot.getStartTime()));
+        assertTimeSlotHasStartTimeOf(1, 8, 0);
+        assertTimeSlotHasStartTimeOf(2, 9, 20);
+        assertTimeSlotHasStartTimeOf(3, 10, 40);
+        assertTimeSlotHasStartTimeOf(4, 12, 0);
+        assertTimeSlotHasStartTimeOf(5, 1, 20);
+        // TODO Add more
+    }
+
+    private void assertTimeSlotHasStartTimeOf(int slotnum, int hours, int minutes) {
+        List<Weekday> dummyWeekdayList = List.of();
+        TimeSlot timeslot = new TimeSlot(dummyWeekdayList, slotnum);
+        DayTime startTime = new DayTime(hours, minutes);
+        assertThat(timeslot.getStartTime(), equalTo(startTime));
     }
 
     @Test
@@ -41,11 +52,10 @@ public class TimeSlotTest {
         assertThat(endTime2, equalTo(timeslot2.getEndTime()));
     }
 
+    @Disabled
     @Test
     void slotNumIsEqualToCorrectWeekday() {
-        TimeSlot timeslot1 = new TimeSlot(Weekday.MWF(), 1);
-        TimeSlot timeslot2 = new TimeSlot(Weekday.TR(), 10);
-        assertThat(timeslot1.weekdayList, equalTo(timeslot1.getWeekdayList()));
-        assertThat(timeslot2.weekdayList, equalTo(timeslot2.getWeekdayList()));
+        assertThrows(RuntimeException.class, () -> { new TimeSlot(Weekday.TR(), 1); });
+        // TODO: Add more
     }
 }
