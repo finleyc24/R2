@@ -30,6 +30,7 @@ public class TimeSlotTest {
         assertTimeSlotHasStartTimeOf(3, 10, 40);
         assertTimeSlotHasStartTimeOf(4, 12, 0);
         assertTimeSlotHasStartTimeOf(5, 1, 20);
+        assertTimeSlotHasStartTimeOf(7, 8, 0);
         // TODO Add more
     }
 

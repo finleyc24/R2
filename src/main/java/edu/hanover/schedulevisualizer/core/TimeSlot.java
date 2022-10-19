@@ -13,14 +13,14 @@ public class TimeSlot {
 
     public DayTime getStartTime() {
         return switch (slotnum) {
-            case 1 -> new DayTime(8, 00);
+            case 1 -> new DayTime(8, 0);
             case 2 -> new DayTime(9, 20);
             case 3 -> new DayTime(10, 40);
-            case 4 -> new DayTime(12, 00);
+            case 4 -> new DayTime(12, 0);
             case 5 -> new DayTime(1, 20);
             case 6 -> new DayTime(2, 40);
-            case 7 -> new DayTime(8, 00);
-            case 8 -> new DayTime(10, 00);
+            case 7 -> new DayTime(8, 0);
+            case 8 -> new DayTime(10, 0);
             case 9 -> new DayTime(12, 20);
             case 10->  new DayTime(2, 15);
             default->  new DayTime(0, 0);
@@ -37,8 +37,8 @@ public class TimeSlot {
             case 6 -> new DayTime(3, 50);
             case 7 -> new DayTime(9, 45);
             case 8 -> new DayTime(11, 45);
-            case 9 -> new DayTime(2, 05);
-            case 10 -> new DayTime(4, 00);
+            case 9 -> new DayTime(2, 5);
+            case 10 -> new DayTime(4, 0);
             default -> new DayTime(0, 0);
         };
     }
