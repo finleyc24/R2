@@ -7,8 +7,11 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TimeSlotGrid extends HBox {
+    Map< Weekday, DayColumn> dayColumns = new HashMap<>();
     @FXML
     private Label welcomeText;
 
@@ -32,7 +35,14 @@ public class TimeSlotGrid extends HBox {
 
     private void addDayColumns() {
         for (Weekday weekday : Weekday.values()) {
-            getChildren().add(DayColumn.forWeekday(weekday));
+            DayColumn dayColumn = DayColumn.forWeekday(weekday);
+            getChildren().add(dayColumn);
+            dayColumns.put(weekday,dayColumn);
+
         }
+    }
+
+    public DayColumn getDayColumn(Weekday weekday) {
+        return dayColumns.get(weekday);
     }
 }

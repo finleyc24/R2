@@ -41,4 +41,7 @@ public class TimeSlot extends VBox {
         setPrefHeight(dayPattern == MWF ? 100 : 150);
     }
 
+    public void addEntry(CourseEntry entry) {
+        getChildren().add(entry);
+    }
 }

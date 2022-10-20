@@ -7,9 +7,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class DayColumn extends VBox {
+
+    Map<Integer,TimeSlot> timeSlots = new HashMap<>();
     @FXML
     private Label label;
     private Weekday day;
@@ -46,7 +50,10 @@ public class DayColumn extends VBox {
 
     private void addSlots(DayPattern dayPattern) {
         for (int slotNum = 1; slotNum <= dayPattern.numSlots; slotNum++) {
-            getChildren().add(TimeSlot.forDayPattern(dayPattern, makeSlotID(slotNum)));
+            TimeSlot timeSlot = TimeSlot.forDayPattern(dayPattern, makeSlotID(slotNum));
+            getChildren().add(timeSlot);
+            timeSlots.put(slotNum, timeSlot);
+
         }
     } 
 
@@ -54,4 +61,7 @@ public class DayColumn extends VBox {
         return "slot" + slotNum + getId();
     }
 
+    public TimeSlot getTimeSlot(int slotnum) {
+        return timeSlots.get(slotnum);
+    }
 }
