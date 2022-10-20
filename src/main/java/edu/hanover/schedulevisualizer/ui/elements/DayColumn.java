@@ -48,7 +48,7 @@ public class DayColumn extends VBox {
         for (int slotNum = 1; slotNum <= dayPattern.numSlots; slotNum++) {
             getChildren().add(TimeSlot.forDayPattern(dayPattern, makeSlotID(slotNum)));
         }
-    }
+    } 
 
     private String makeSlotID(int slotNum) {
         return "slot" + slotNum + getId();
