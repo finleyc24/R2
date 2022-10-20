@@ -9,15 +9,19 @@ public class CourseTest {
     public void canCreateCourse(){
         assertCreatedCourseHasCorrectParameters("Data Structures", "223", "CS", new TimeSlot(Weekday.MWF(), 1));
         assertCreatedCourseHasCorrectParameters("System Fundamentals", "231", "CS", new TimeSlot(Weekday.TR(), 7));
+        assertCreatedCourseHasCorrectParameters("Discrete Mathematics", "243", "MAT", new TimeSlot(Weekday.MWF(), 3));
     }
 
     private static void assertCreatedCourseHasCorrectParameters(String courseName, String courseNum, String prefix, TimeSlot timeslot1) {
         Course course1 = new Course(timeslot1, prefix, courseNum, courseName);
-        assertThat(course1.prefix, equalTo(prefix));
-        assertThat(course1.courseNum, equalTo(courseNum));
-        assertThat(course1.courseName, equalTo(courseName));
-        assertThat(course1.timeslot1, equalTo(timeslot1));
+        assertThat(course1.getPrefix(), equalTo(prefix));
+        assertThat(course1.getCourseNum(), equalTo(courseNum));
+        assertThat(course1.getCourseName(), equalTo(courseName));
+        assertThat(course1.getTimeSlot(), equalTo(timeslot1));
     }
-
-
+    @Test
+    public void canCombinePrefixAndCourseNumber(){
+        Course course1 = new Course(new TimeSlot(Weekday.MWF(),1),"CS", "223", "Data Structures");
+        assertThat(course1.combinePrefixAndCourseNum(course1.getPrefix(), course1.getCourseNum()), equalTo("CS 223"));
+    }
 }

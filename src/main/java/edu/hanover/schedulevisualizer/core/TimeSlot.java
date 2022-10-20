@@ -8,7 +8,6 @@ public class TimeSlot {
     public TimeSlot(List<Weekday> weekdayList, int slotnum){
         this.weekdayList = weekdayList;
         this.slotnum = slotnum;
-
     }
 
     public DayTime getStartTime() {
