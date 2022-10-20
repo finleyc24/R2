@@ -42,11 +42,6 @@ public class TimeSlot {
         };
     }
     public List<Weekday> getWeekdayList(){
-        switch (slotnum){
-            case 1, 2, 3, 4, 5, 6 -> weekdayList = Weekday.MWF();
-            case 7, 8, 9, 10 -> weekdayList = Weekday.TR();
-            default -> throw new RuntimeException("Not a Valid TimeSlot for the weekday!");
-        }
         return weekdayList;
     }
 }
