@@ -29,7 +29,7 @@ public class Course {
         return timeSlot;
     }
 
-    public String combinePrefixAndCourseNum(String prefix, String courseNum) {
+    public String createCourseCode(String prefix, String courseNum) {
         return prefix + " "+ courseNum;
     }
 }

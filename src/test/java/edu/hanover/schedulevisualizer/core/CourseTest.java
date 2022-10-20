@@ -22,6 +22,6 @@ public class CourseTest {
     @Test
     public void canCombinePrefixAndCourseNumber(){
         Course course1 = new Course(new TimeSlot(Weekday.MWF(),1),"CS", "223", "Data Structures");
-        assertThat(course1.combinePrefixAndCourseNum(course1.getPrefix(), course1.getCourseNum()), equalTo("CS 223"));
+        assertThat(course1.createCourseCode(course1.getPrefix(), course1.getCourseNum()), equalTo("CS 223"));
     }
 }
