@@ -1,16 +1,16 @@
 package edu.hanover.schedulevisualizer.core;
 
 public class Course {
-    public  TimeSlot timeSlot;
-    public  String prefix;
-    public  String courseNum;
-    public  String courseName;
+    private final TimeSlot timeSlot;
+    private final String prefix;
+    private final String courseNum;
+    private final String courseName;
 
-    public Course(TimeSlot timeslot1, String prefix, String courseNum, String courseName){
-        this.timeSlot = timeslot1;
+    public Course(String prefix, String courseNum, String courseName, TimeSlot timeslot) {
         this.prefix = prefix;
         this.courseNum = courseNum;
         this.courseName = courseName;
+        this.timeSlot = timeslot;
     }
 
     public String getPrefix() {
@@ -30,6 +30,6 @@ public class Course {
     }
 
     public String getCourseCode() {
-        return getPrefix() + " "+ getCourseNum();
+        return prefix + " " + courseNum;
     }
 }

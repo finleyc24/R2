@@ -13,7 +13,7 @@ public class CourseTest {
     }
 
     private static void assertCreatedCourseHasCorrectParameters(String courseName, String courseNum, String prefix, TimeSlot timeslot1) {
-        Course course1 = new Course(timeslot1, prefix, courseNum, courseName);
+        Course course1 = new Course(prefix, courseNum, courseName, timeslot1);
         assertThat(course1.getPrefix(), equalTo(prefix));
         assertThat(course1.getCourseNum(), equalTo(courseNum));
         assertThat(course1.getCourseName(), equalTo(courseName));
@@ -21,7 +21,7 @@ public class CourseTest {
     }
     @Test
     public void canCombinePrefixAndCourseNumber(){
-        Course course1 = new Course(new TimeSlot(Weekday.MWF(),1),"CS", "223", "Data Structures");
+        Course course1 = new Course("CS", "223", "Data Structures", new TimeSlot(Weekday.MWF(), 1));
         assertThat(course1.getCourseCode(), equalTo("CS 223"));
     }
 }

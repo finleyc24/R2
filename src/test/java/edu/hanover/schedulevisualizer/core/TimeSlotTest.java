@@ -36,13 +36,6 @@ public class TimeSlotTest {
         assertThrows(RuntimeException.class, () -> { (new TimeSlot(List.of(), 11)).getWeekdayList();});
     }
 
-    private void assertTimeSlotHasStartTimeOf(int slotnum, int hours, int minutes) {
-        List<Weekday> dummyWeekdayList = List.of();
-        TimeSlot timeslot = new TimeSlot(dummyWeekdayList, slotnum);
-        DayTime startTime = new DayTime(hours, minutes);
-        assertThat(timeslot.getStartTime(), equalTo(startTime));
-    }
-
     @Test
     void slotNumIsEqualToCorrectEndTime() {
         assertTimeSlotHasEndTimeOf(1,9,10);
@@ -56,6 +49,13 @@ public class TimeSlotTest {
         assertTimeSlotHasEndTimeOf(9,2,5);
         assertTimeSlotHasEndTimeOf(10, 4,0);
         assertThrows(RuntimeException.class, () -> { (new TimeSlot(List.of(), 11)).getWeekdayList();});
+    }
+
+    private void assertTimeSlotHasStartTimeOf(int slotnum, int hours, int minutes) {
+        List<Weekday> dummyWeekdayList = List.of();
+        TimeSlot timeslot = new TimeSlot(dummyWeekdayList, slotnum);
+        DayTime startTime = new DayTime(hours, minutes);
+        assertThat(timeslot.getStartTime(), equalTo(startTime));
     }
     private void assertTimeSlotHasEndTimeOf(int slotnum, int hours, int minutes) {
         List<Weekday> dummyWeekdayList = List.of();

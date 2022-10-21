@@ -32,12 +32,7 @@ public class HelloController {
     }
     @FXML
     void initialize(){
-        System.out.println("something");
-        List<Course> courseList = Context.getData();
-        for (Course course : courseList) {
-            displayCourse(course);
-        }
-
+        context.getData().forEach(this::displayCourse);
     }
 
     private void displayCourse(Course course) {
@@ -52,9 +47,6 @@ public class HelloController {
     }
 
     private TimeSlot getUITimeSlot(int slotnum, Weekday weekday) {
-        DayColumn dayColumn = grid.getDayColumn(weekday);
-        TimeSlot timeSlot = dayColumn.getTimeSlot(slotnum);
-
-        return timeSlot;
+        return grid.getDayColumn(weekday).getTimeSlot(slotnum);
     }
 }
