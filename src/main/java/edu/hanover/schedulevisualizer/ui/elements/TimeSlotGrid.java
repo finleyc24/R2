@@ -1,5 +1,6 @@
 package edu.hanover.schedulevisualizer.ui.elements;
 
+import edu.hanover.schedulevisualizer.core.Course;
 import edu.hanover.schedulevisualizer.core.Weekday;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +9,7 @@ import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class TimeSlotGrid extends HBox {
@@ -38,11 +40,17 @@ public class TimeSlotGrid extends HBox {
             DayColumn dayColumn = DayColumn.forWeekday(weekday);
             getChildren().add(dayColumn);
             dayColumns.put(weekday,dayColumn);
-
         }
     }
 
-    public DayColumn getDayColumn(Weekday weekday) {
-        return dayColumns.get(weekday);
+    public void displayData(List<Course> data) {
+        data.forEach(this::displayCourse);
     }
+
+    public void displayCourse(Course course) {
+        for (Weekday weekday : course.getWeekdays()) {
+            dayColumns.get(weekday).addCourse(course);
+        }
+    }
+
 }

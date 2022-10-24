@@ -1,5 +1,6 @@
 package edu.hanover.schedulevisualizer.ui.elements;
 
+import edu.hanover.schedulevisualizer.core.Course;
 import edu.hanover.schedulevisualizer.core.Weekday;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,6 +39,10 @@ public class DayColumn extends VBox {
         return dayColumn;
     }
 
+    void addCourse(Course course) {
+        timeSlots.get(course.getSlotNumber()).addCourse(course);
+    }
+
     public Weekday getDay() {
         return day;
     }
@@ -55,13 +60,10 @@ public class DayColumn extends VBox {
             timeSlots.put(slotNum, timeSlot);
 
         }
-    } 
+    }
 
     private String makeSlotID(int slotNum) {
         return "slot" + slotNum + getId();
     }
 
-    public TimeSlot getTimeSlot(int slotnum) {
-        return timeSlots.get(slotnum);
-    }
 }

@@ -1,5 +1,6 @@
 package edu.hanover.schedulevisualizer.ui.elements;
 
+import edu.hanover.schedulevisualizer.core.Course;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
 
@@ -41,7 +42,8 @@ public class TimeSlot extends VBox {
         setPrefHeight(dayPattern == MWF ? 100 : 150);
     }
 
-    public void addEntry(CourseEntry entry) {
-        getChildren().add(entry);
+    void addCourse(Course course) {
+        getChildren().add(CourseEntry.forCourse(course));
     }
+
 }

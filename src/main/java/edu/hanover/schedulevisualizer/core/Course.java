@@ -1,5 +1,7 @@
 package edu.hanover.schedulevisualizer.core;
 
+import java.util.List;
+
 public class Course {
     private final TimeSlot timeSlot;
     private final String prefix;
@@ -31,5 +33,13 @@ public class Course {
 
     public String getCourseCode() {
         return prefix + " " + courseNum;
+    }
+
+    public List<Weekday> getWeekdays() {
+        return timeSlot.getWeekdayList();
+    }
+
+    public int getSlotNumber() {
+        return timeSlot.slotnum;
     }
 }

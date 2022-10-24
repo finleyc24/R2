@@ -1,5 +1,6 @@
 package edu.hanover.schedulevisualizer.ui.elements;
 
+import edu.hanover.schedulevisualizer.core.Course;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -26,6 +27,13 @@ public class CourseEntry extends StackPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+    }
+
+    static CourseEntry forCourse(Course course) {
+        CourseEntry entry = new CourseEntry();
+        entry.setText(course.getCourseCode());
+        entry.setColor(Color.AQUA);
+        return entry;
     }
 
     public String getText() {
