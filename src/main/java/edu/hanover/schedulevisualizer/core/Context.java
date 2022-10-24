@@ -14,7 +14,7 @@ public class Context {
     public List<Course> getData() {
         return List.of(
                 new Course("CS", "220", "Fundamentals of Computer Science", new TimeSlot(Weekday.MWF(), 1)),
-                new Course("MAT", "121", "Calculus I", new TimeSlot(Weekday.MW(), 1))
+                new Course("MAT", "121", "Calculus I", new TimeSlot(List.of(Weekday.Tuesday), 7))
         );
     }
 }

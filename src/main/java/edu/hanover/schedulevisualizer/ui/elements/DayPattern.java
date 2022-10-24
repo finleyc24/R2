@@ -14,4 +14,8 @@ public enum DayPattern {
     static DayPattern forDay(Weekday day) {
         return day.isTR() ? TR : MWF;
     }
+
+    int getOffset() {
+        return this == TR ? 6 : 0;
+    }
 }
