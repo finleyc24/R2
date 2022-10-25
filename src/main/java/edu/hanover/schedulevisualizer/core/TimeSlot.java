@@ -44,4 +44,25 @@ public class TimeSlot {
     public List<Weekday> getWeekdayList(){
         return weekdayList;
     }
+
+    public boolean overlaps(TimeSlot otherSlot) {
+        if (otherSlot.slotnum != slotnum){
+            return false;
+        }
+        if (noDaysTheSameIn(otherSlot)){return false;}
+        return true;
+
+    }
+
+
+    private boolean noDaysTheSameIn(TimeSlot otherSlot) {
+        for(Weekday day1 : weekdayList) {
+            for (Weekday day2 : otherSlot.weekdayList) {
+                if (day1 == day2){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
