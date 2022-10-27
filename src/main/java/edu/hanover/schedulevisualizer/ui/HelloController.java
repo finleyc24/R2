@@ -24,7 +24,8 @@ public class HelloController {
     }
     @FXML
     void initialize(){
-        grid.displayData(context.getData());
+        context.addObserver(grid);
+        context.getData();
     }
 
 }

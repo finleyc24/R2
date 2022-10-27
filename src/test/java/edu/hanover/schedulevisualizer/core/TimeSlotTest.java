@@ -19,7 +19,7 @@ public class TimeSlotTest {
     }
 
     private static void assertCreatedTimeSlotHasCorrectWeekdaysAndSlotnum(List<Weekday> weekdayList, int slot) {
-        TimeSlot timeslot = new TimeSlot(weekdayList, slot);
+        HCTimeSlot timeslot = new HCTimeSlot(weekdayList, slot);
         assertThat(timeslot.slotnum, equalTo(slot));
         assertThat(timeslot.getWeekdayList(), equalTo(weekdayList));
     }
@@ -35,7 +35,7 @@ public class TimeSlotTest {
         assertTimeSlotHasStartTimeOf(8,10,0);
         assertTimeSlotHasStartTimeOf(9,12,20);
         assertTimeSlotHasStartTimeOf(10, 2,15);
-        assertThrows(RuntimeException.class, () -> { (new TimeSlot(List.of(), 11)).getWeekdayList();});
+        assertThrows(RuntimeException.class, () -> { (new HCTimeSlot(List.of(), 11)).getWeekdayList();});
     }
 
     @Test
@@ -50,18 +50,18 @@ public class TimeSlotTest {
         assertTimeSlotHasEndTimeOf(8, 11,45);
         assertTimeSlotHasEndTimeOf(9,2,5);
         assertTimeSlotHasEndTimeOf(10, 4,0);
-        assertThrows(RuntimeException.class, () -> { (new TimeSlot(List.of(), 11)).getWeekdayList();});
+        assertThrows(RuntimeException.class, () -> { (new HCTimeSlot(List.of(), 11)).getWeekdayList();});
     }
 
     private void assertTimeSlotHasStartTimeOf(int slotnum, int hours, int minutes) {
         List<Weekday> dummyWeekdayList = List.of();
-        TimeSlot timeslot = new TimeSlot(dummyWeekdayList, slotnum);
+        TimeSlot timeslot = new HCTimeSlot(dummyWeekdayList, slotnum);
         DayTime startTime = new DayTime(hours, minutes);
         assertThat(timeslot.getStartTime(), equalTo(startTime));
     }
     private void assertTimeSlotHasEndTimeOf(int slotnum, int hours, int minutes) {
         List<Weekday> dummyWeekdayList = List.of();
-        TimeSlot timeslot = new TimeSlot(dummyWeekdayList, slotnum);
+        TimeSlot timeslot = new HCTimeSlot(dummyWeekdayList, slotnum);
         DayTime endTime = new DayTime(hours, minutes);
         assertThat(timeslot.getEndTime(), equalTo(endTime));
     }
@@ -69,13 +69,13 @@ public class TimeSlotTest {
     @org.junit.Test
     public void testOverlapsDifferentSlotNum(){
         List<Weekday> thurs1 = List.of(Weekday.Thursday);
-        TimeSlot timeSlot1 = new TimeSlot(thurs1, 6);
+        TimeSlot timeSlot1 = new HCTimeSlot(thurs1, 6);
 
         List<Weekday> thurs2 = List.of(Weekday.Thursday);
-        TimeSlot timeSlot2 = new TimeSlot(thurs2, 6);
+        HCTimeSlot timeSlot2 = new HCTimeSlot(thurs2, 6);
 
         List<Weekday> thurs3 = List.of(Weekday.Thursday);
-        TimeSlot timeSlot3 = new TimeSlot(thurs3, 7);
+        HCTimeSlot timeSlot3 = new HCTimeSlot(thurs3, 7);
 
         assertTrue(timeSlot1.overlaps(timeSlot2));
         assertFalse(timeSlot1.overlaps(timeSlot3));
@@ -83,13 +83,13 @@ public class TimeSlotTest {
     @org.junit.Test
     public void testOverlapsDifferentDay(){
         List<Weekday> thurs1 = List.of(Weekday.Thursday);
-        TimeSlot thursSlot1 = new TimeSlot(thurs1, 6);
+        TimeSlot thursSlot1 = new HCTimeSlot(thurs1, 6);
 
         List<Weekday> friday1 = List.of(Weekday.Friday);
-        TimeSlot friSlot1 = new TimeSlot(friday1, 6);
+        HCTimeSlot friSlot1 = new HCTimeSlot(friday1, 6);
 
         List<Weekday> thurs3 = List.of(Weekday.Thursday);
-        TimeSlot thursSlot2 = new TimeSlot(thurs3, 6);
+        HCTimeSlot thursSlot2 = new HCTimeSlot(thurs3, 6);
 
         assertFalse(thursSlot1.overlaps(friSlot1));
         assertTrue(thursSlot1.overlaps(thursSlot2));

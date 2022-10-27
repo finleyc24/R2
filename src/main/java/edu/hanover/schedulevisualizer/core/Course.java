@@ -3,12 +3,12 @@ package edu.hanover.schedulevisualizer.core;
 import java.util.List;
 
 public class Course {
-    private final TimeSlot timeSlot;
+    private final HCTimeSlot timeSlot;
     private final String prefix;
     private final String courseNum;
     private final String courseName;
 
-    public Course(String prefix, String courseNum, String courseName, TimeSlot timeslot) {
+    public Course(String prefix, String courseNum, String courseName, HCTimeSlot timeslot) {
         this.prefix = prefix;
         this.courseNum = courseNum;
         this.courseName = courseName;
