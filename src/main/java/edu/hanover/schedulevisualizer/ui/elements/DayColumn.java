@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class DayColumn extends VBox {
 
-    Map<Integer,TimeSlot> timeSlots = new HashMap<>();
+    Map<Integer, TimeSlot> timeSlots = new HashMap<>();
     @FXML
     private Label label;
     private Weekday day;
@@ -40,7 +40,9 @@ public class DayColumn extends VBox {
     }
 
     void addCourse(Course course) {
-        timeSlots.get(course.getSlotNumber()).addCourse(course);
+        course.getTimeSlot()
+                .ifAssignedSlotNumberDo(
+                        (Integer slotnum) -> timeSlots.get(slotnum).addCourse(course));
     }
 
     public Weekday getDay() {

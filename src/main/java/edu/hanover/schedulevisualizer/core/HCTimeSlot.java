@@ -1,5 +1,6 @@
 package edu.hanover.schedulevisualizer.core;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class HCTimeSlot implements TimeSlot {
     private List<Weekday> weekdayList;
@@ -50,6 +51,10 @@ public class HCTimeSlot implements TimeSlot {
         return hcOtherSlot.slotnum == slotnum &&
                 hasDaysInCommonWith(hcOtherSlot);
 
+    }
+
+    public void ifAssignedSlotNumberDo(Consumer<Integer> f) {
+        f.accept(slotnum);
     }
 
     private boolean hasDaysInCommonWith(HCTimeSlot hcOtherSlot) {
