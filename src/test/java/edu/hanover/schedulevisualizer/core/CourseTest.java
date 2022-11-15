@@ -3,7 +3,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 public class CourseTest {
     @Test
     public void canCreateCourse(){
@@ -17,11 +16,19 @@ public class CourseTest {
         assertThat(course1.getPrefix(), equalTo(prefix));
         assertThat(course1.getCourseNum(), equalTo(courseNum));
         assertThat(course1.getCourseName(), equalTo(courseName));
-        assertThat(course1.getTimeSlot(), equalTo(timeslot1));
+        assertThat(course1.getTimeslot(), equalTo(timeslot1));
     }
     @Test
     public void canCombinePrefixAndCourseNumber(){
         Course course1 = new Course("CS", "223", "Data Structures", new HCTimeSlot(Weekday.MWF(), 1));
         assertThat(course1.getCourseCode(), equalTo("CS 223"));
+    }
+
+    @Test
+    public void canConstructorWorkWithNullTimeSlot() {
+        UnassignedTimeSlot nulltimeslot = new UnassignedTimeSlot(0);
+        Course course1 = new Course("CS", "223", "Data Structures", nulltimeslot);
+        assertThat(course1.getTimeslot(), equalTo(nulltimeslot));
+
     }
 }

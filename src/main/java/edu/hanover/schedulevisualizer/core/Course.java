@@ -3,17 +3,19 @@ package edu.hanover.schedulevisualizer.core;
 import java.util.List;
 
 public class Course {
-    private final HCTimeSlot timeSlot;
+    private final TimeSlot timeslot;
     private final String prefix;
     private final String courseNum;
     private final String courseName;
 
-    public Course(String prefix, String courseNum, String courseName, HCTimeSlot timeslot) {
+
+    public Course(String prefix, String courseNum, String courseName, TimeSlot timeslot) {
         this.prefix = prefix;
         this.courseNum = courseNum;
         this.courseName = courseName;
-        this.timeSlot = timeslot;
+        this.timeslot = timeslot;
     }
+
 
     public String getPrefix() {
         return prefix;
@@ -27,19 +29,12 @@ public class Course {
         return courseName;
     }
 
-    public TimeSlot getTimeSlot() {
-        return timeSlot;
-    }
+    public TimeSlot getTimeslot() { return timeslot; }
 
     public String getCourseCode() {
         return prefix + " " + courseNum;
     }
 
-    public List<Weekday> getWeekdays() {
-        return timeSlot.getWeekdayList();
-    }
+    public List<Weekday> getWeekdays() { return timeslot.getWeekdayList(); }
 
-    public int getSlotNumber() {
-        return timeSlot.slotnum;
-    }
 }

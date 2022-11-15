@@ -64,5 +64,8 @@ public class HCTimeSlot implements TimeSlot {
         return false;
     }
 
+    public void ifUnAssignedSlotNumberDo(Consumer<Integer> f){
+        // does nothing
+    }
 
 }

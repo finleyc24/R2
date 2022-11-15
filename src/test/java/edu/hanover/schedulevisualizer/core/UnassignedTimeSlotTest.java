@@ -14,14 +14,14 @@ public class UnassignedTimeSlotTest {
 
     @Test
     public void weekdayListUnassigned(){
-        UnassignedTimeSlot unassignedSlot = new UnassignedTimeSlot();
+        UnassignedTimeSlot unassignedSlot = new UnassignedTimeSlot(0);
         assertThat(unassignedSlot.getWeekdayList(), equalTo(List.of()));
     }
 
     @Test
     public void overlapsTestUnassigned(){
-        UnassignedTimeSlot unassignedSlot = new UnassignedTimeSlot();
-        assertThat(unassignedSlot.overlaps(new UnassignedTimeSlot()), equalTo(Boolean.FALSE));
+        UnassignedTimeSlot unassignedSlot = new UnassignedTimeSlot(0);
+        assertThat(unassignedSlot.overlaps(new UnassignedTimeSlot(0)), equalTo(Boolean.FALSE));
         
     }
 }
