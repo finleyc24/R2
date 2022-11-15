@@ -20,7 +20,10 @@ public class Context {
     public void getData() {
         this.data = List.of(
                 new Course("CS", "220", "Fundamentals of Computer Science", new HCTimeSlot(Weekday.MWF(), 1)),
-                new Course("MAT", "121", "Calculus I", new HCTimeSlot(List.of(Weekday.Tuesday), 7))
+                new Course("MAT", "121", "Calculus I", new HCTimeSlot(List.of(Weekday.Tuesday), 7)),
+                new Course("FY", "101", "First Year", new UnassignedTimeSlot()),
+                new Course("FY2", "102", "First Year2", new UnassignedTimeSlot())
+
         );
         notifyObservers();
     }

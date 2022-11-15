@@ -25,7 +25,6 @@ public class TimeSlotGridController {
     @FXML
     void initialize(){
         context.addObserver(grid);
-        context.getData();
     }
 
 }

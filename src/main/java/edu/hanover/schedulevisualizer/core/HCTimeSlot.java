@@ -61,6 +61,10 @@ public class HCTimeSlot implements TimeSlot {
         // does nothing
     }
 
+
+    public void ifUnassignedSlotDo(Runnable runnable) {
+    }
+
     private boolean hasDaysInCommonWith(HCTimeSlot hcOtherSlot) {
         for(Weekday day1 : weekdayList) {
             if (hcOtherSlot.weekdayList.contains(day1)) return true;

@@ -10,4 +10,6 @@ public interface TimeSlot {
     boolean overlaps(TimeSlot otherSlot);
 
     void ifAssignedSlotNumberDo(Consumer<Integer> f);
+
+    void ifUnassignedSlotDo(Runnable runnable);
 }

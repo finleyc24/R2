@@ -23,7 +23,8 @@ public class UnassignedTimeSlot implements TimeSlot {
         // Do nothing if timeslot is not assigned number
     }
 
-    public void ifUnAssignedSlotNumberDo(Runnable f){
-        f.run();
+
+    public void ifUnassignedSlotDo(Runnable runnable) {
+        runnable.run();
     }
 }
