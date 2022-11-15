@@ -26,7 +26,7 @@ public class CourseTest {
 
     @Test
     public void canConstructorWorkWithNullTimeSlot() {
-        UnassignedTimeSlot nulltimeslot = new UnassignedTimeSlot(0);
+        UnassignedTimeSlot nulltimeslot = new UnassignedTimeSlot();
         Course course1 = new Course("CS", "223", "Data Structures", nulltimeslot);
         assertThat(course1.getTimeslot(), equalTo(nulltimeslot));
 

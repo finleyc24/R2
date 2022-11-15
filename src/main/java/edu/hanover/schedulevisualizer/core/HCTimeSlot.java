@@ -57,15 +57,15 @@ public class HCTimeSlot implements TimeSlot {
         f.accept(slotnum);
     }
 
+    public void ifUnAssignedSlotNumberDo(Runnable f){
+        // does nothing
+    }
+
     private boolean hasDaysInCommonWith(HCTimeSlot hcOtherSlot) {
         for(Weekday day1 : weekdayList) {
             if (hcOtherSlot.weekdayList.contains(day1)) return true;
         }
         return false;
-    }
-
-    public void ifUnAssignedSlotNumberDo(Consumer<Integer> f){
-        // does nothing
     }
 
 }

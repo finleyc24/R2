@@ -6,10 +6,9 @@ import java.util.function.Consumer;
 
 
 public class UnassignedTimeSlot implements TimeSlot {
- public int slotnum;
 
-    public UnassignedTimeSlot(int slotnum){
-    this.slotnum = slotnum;
+    public UnassignedTimeSlot(){
+
     }
 
     public List<Weekday> getWeekdayList() {
@@ -24,7 +23,7 @@ public class UnassignedTimeSlot implements TimeSlot {
         // Do nothing if timeslot is not assigned number
     }
 
-    public void ifUnAssignedSlotNumberDo(Consumer<Integer> f){
-        f.accept(slotnum);
+    public void ifUnAssignedSlotNumberDo(Runnable f){
+        f.run();
     }
 }
