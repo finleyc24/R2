@@ -16,5 +16,6 @@ public class SidePanelController {
     public void initialize() {
         Context context = Context.getInstance();
         context.addObserver(unassignedCourseList);
+        unassignedCourseList.setAsDropTarget();
     }
 }

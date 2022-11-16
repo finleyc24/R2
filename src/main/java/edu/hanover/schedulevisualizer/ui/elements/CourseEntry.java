@@ -4,6 +4,9 @@ import edu.hanover.schedulevisualizer.core.Course;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -24,9 +27,26 @@ public class CourseEntry extends StackPane {
         fxmlLoader.setController(this);
         try {
             fxmlLoader.load();
+            setupAsDragSource();
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+    }
+
+    private void setupAsDragSource() {
+        setOnDragDetected(event -> {
+            Dragboard db = startDragAndDrop(TransferMode.ANY);
+
+            ClipboardContent content = new ClipboardContent();
+            content.putString(getText());
+            db.setContent(content);
+            // TODO: Make drag color change
+            setColor(Color.AZURE);
+            event.consume();
+        });
+        setOnDragDone(event -> {
+            setColor(Color.AQUA);
+        });
     }
 
     static CourseEntry forCourse(Course course) {
