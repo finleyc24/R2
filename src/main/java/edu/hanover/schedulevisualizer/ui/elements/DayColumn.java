@@ -1,6 +1,8 @@
 package edu.hanover.schedulevisualizer.ui.elements;
 
 import edu.hanover.schedulevisualizer.core.Course;
+import edu.hanover.schedulevisualizer.core.HCTimeSlot;
+import edu.hanover.schedulevisualizer.core.TimeSlot;
 import edu.hanover.schedulevisualizer.core.Weekday;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,12 +11,13 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
 public class DayColumn extends VBox {
 
-    Map<Integer, TimeSlot> timeSlots = new HashMap<>();
+    Map<Integer, UITimeSlot> timeSlots = new HashMap<>();
     @FXML
     private Label label;
     private Weekday day;
@@ -57,9 +60,11 @@ public class DayColumn extends VBox {
 
     private void addSlots(DayPattern dayPattern) {
         for (int slotNum = 1; slotNum <= dayPattern.numSlots; slotNum++) {
-            TimeSlot timeSlot = TimeSlot.forDayPattern(dayPattern, makeSlotID(slotNum));
-            getChildren().add(timeSlot);
-            timeSlots.put(slotNum + dayPattern.getOffset(), timeSlot);
+            int offsetTimeslot = slotNum + dayPattern.getOffset();
+            HCTimeSlot timeslot =  new HCTimeSlot(List.of(day), offsetTimeslot);
+            UITimeSlot uiTimeSlot = UITimeSlot.forDayPattern(dayPattern, makeSlotID(slotNum), timeslot);
+            getChildren().add(uiTimeSlot);
+            timeSlots.put(offsetTimeslot, uiTimeSlot);
 
         }
     }

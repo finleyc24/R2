@@ -19,7 +19,9 @@ public class CourseEntry extends StackPane {
     @FXML
     Label label;
 
-    public CourseEntry() {
+    private Course course;
+
+    private CourseEntry() {
         super();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "course-entry-view.fxml"));
@@ -53,6 +55,7 @@ public class CourseEntry extends StackPane {
         CourseEntry entry = new CourseEntry();
         entry.setText(course.getCourseCode());
         entry.setColor(Color.AQUA);
+        entry.course = course;
         return entry;
     }
 
@@ -74,5 +77,9 @@ public class CourseEntry extends StackPane {
 
     @FXML
     public void initialize() {
+    }
+
+    public Course getCourse() {
+        return course;
     }
 }

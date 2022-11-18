@@ -1,17 +1,19 @@
 package edu.hanover.schedulevisualizer.ui.elements;
 
 import edu.hanover.schedulevisualizer.core.Course;
+import edu.hanover.schedulevisualizer.core.TimeSlot;
+import edu.hanover.schedulevisualizer.core.UnassignedTimeSlot;
 import edu.hanover.schedulevisualizer.observable.MyObserver;
+import edu.hanover.schedulevisualizer.ui.controller.DropTargetController;
 import javafx.application.Platform;
-import javafx.scene.input.Dragboard;
-import javafx.scene.input.TransferMode;
+import javafx.scene.Node;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 import java.util.List;
 
-public class UnassignedCourseList extends VBox implements MyObserver<List<Course>> {
+public class UnassignedCourseList extends VBox implements MyObserver<List<Course>>, DropTarget {
 
     void addCourse(Course course) {
         getChildren().add(CourseEntry.forCourse(course));
@@ -30,45 +32,22 @@ public class UnassignedCourseList extends VBox implements MyObserver<List<Course
     }
 
     public void setAsDropTarget() {
-        setOnDragOver(
-                event -> {
-                    if (event.getGestureSource() != this &&
-                            event.getDragboard().hasString()) {
-                        System.out.println("Accepted modes: " + event.getDragboard().getTransferModes());
-                        System.out.println("Default mode: " + event.getTransferMode());
-                        event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
-                    }
+        new DropTargetController(this).setup();
+    }
 
-                    event.consume();
-                });
-        setOnDragEntered(event -> {
-            if (event.getGestureSource() != this &&
-                    event.getDragboard().hasString()) {
-                setBorder(Border.stroke(Color.BLUEVIOLET));
-            }
+    public void clearValidDropTarget() {
+        setBorder(Border.EMPTY);
+    }
 
-            event.consume();
-        });
-        setOnDragExited(event -> {
-            setBorder(Border.EMPTY);
-            event.consume();
-        });
-        setOnDragDropped(event -> {
-            /* data dropped */
-            /* if there is a string data on dragboard, read it and use it */
-            Dragboard db = event.getDragboard();
-            boolean success = false;
-            if (db.hasString()) {
-                System.out.println(event.getTransferMode());
-                System.out.println(event.getAcceptedTransferMode());
-                System.out.println("Dropped: " + db.getString());
-                success = true;
-            }
-            /* let the source know whether the string was successfully
-             * transferred and used */
-            event.setDropCompleted(success);
+    public void signalValidDropTarget() {
+        setBorder(Border.stroke(Color.BLUEVIOLET));
+    }
 
-            event.consume();
-        });
+    public TimeSlot getTimeslot() {
+        return new UnassignedTimeSlot();
+    }
+
+    public Node getNode() {
+        return this;
     }
 }
