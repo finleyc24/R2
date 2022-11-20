@@ -4,7 +4,7 @@ import edu.hanover.schedulevisualizer.core.Course;
 import edu.hanover.schedulevisualizer.core.TimeSlot;
 import edu.hanover.schedulevisualizer.core.UnassignedTimeSlot;
 import edu.hanover.schedulevisualizer.observable.MyObserver;
-import edu.hanover.schedulevisualizer.ui.controller.DropTargetController;
+import edu.hanover.schedulevisualizer.ui.controller.DragAndDropController;
 import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.layout.Border;
@@ -32,7 +32,7 @@ public class UnassignedCourseList extends VBox implements MyObserver<List<Course
     }
 
     public void setAsDropTarget() {
-        new DropTargetController(this).setup();
+        DragAndDropController.getInstance().setupDropTarget(this);
     }
 
     public void clearValidDropTarget() {
