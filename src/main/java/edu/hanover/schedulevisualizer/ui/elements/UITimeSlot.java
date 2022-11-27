@@ -2,7 +2,8 @@ package edu.hanover.schedulevisualizer.ui.elements;
 
 import edu.hanover.schedulevisualizer.core.Course;
 import edu.hanover.schedulevisualizer.core.TimeSlot;
-import edu.hanover.schedulevisualizer.ui.controller.DragAndDropController;
+import edu.hanover.schedulevisualizer.ui.draganddrop.DragAndDropController;
+import edu.hanover.schedulevisualizer.ui.draganddrop.DropTarget;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;

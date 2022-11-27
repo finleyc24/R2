@@ -1,7 +1,8 @@
 package edu.hanover.schedulevisualizer.ui.elements;
 
 import edu.hanover.schedulevisualizer.core.Course;
-import edu.hanover.schedulevisualizer.ui.controller.DragAndDropController;
+import edu.hanover.schedulevisualizer.ui.draganddrop.DragAndDropController;
+import edu.hanover.schedulevisualizer.ui.draganddrop.DragSource;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -17,7 +18,7 @@ public class CourseEntry extends StackPane implements DragSource {
     @FXML
     Label label;
 
-    private Course course;
+    private long courseId;
 
     private CourseEntry() {
         super();
@@ -34,7 +35,8 @@ public class CourseEntry extends StackPane implements DragSource {
     }
 
     public String getDraggedContent() {
-        return this.getText();
+        // TODO: Want to return both text and integer
+        return String.valueOf(this.courseId);
     }
 
     public void indicateDragEnded() {
@@ -53,8 +55,12 @@ public class CourseEntry extends StackPane implements DragSource {
         CourseEntry entry = new CourseEntry();
         entry.setText(course.getCourseCode());
         entry.setColor(Color.AQUA);
-        entry.course = course;
+        entry.setCourseId(course.getCourseId());
         return entry;
+    }
+
+    private void setCourseId(long courseId) {
+        this.courseId = courseId;
     }
 
     public String getText() {
@@ -77,7 +83,4 @@ public class CourseEntry extends StackPane implements DragSource {
     public void initialize() {
     }
 
-    public Course getCourse() {
-        return course;
-    }
 }

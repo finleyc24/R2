@@ -1,4 +1,4 @@
-package edu.hanover.schedulevisualizer.ui.elements;
+package edu.hanover.schedulevisualizer.ui.draganddrop;
 
 import javafx.scene.Node;
 

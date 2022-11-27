@@ -3,6 +3,8 @@ package edu.hanover.schedulevisualizer.core;
 import java.util.List;
 
 public class Course {
+    private static long nextAvailableCourseId = 0;
+    private final long courseId;
     private TimeSlot timeslot;
     private final String prefix;
     private final String courseNum;
@@ -10,6 +12,8 @@ public class Course {
 
 
     public Course(String prefix, String courseNum, String courseName, TimeSlot timeslot) {
+        this.courseId = nextAvailableCourseId;
+        nextAvailableCourseId += 1;
         this.prefix = prefix;
         this.courseNum = courseNum;
         this.courseName = courseName;
@@ -36,6 +40,10 @@ public class Course {
     }
 
     public List<Weekday> getWeekdays() { return timeslot.getWeekdayList(); }
+
+    public long getCourseId() {
+        return courseId;
+    }
 
     public void setTimeslot(TimeSlot timeslot) {
         // TODO: Set observable

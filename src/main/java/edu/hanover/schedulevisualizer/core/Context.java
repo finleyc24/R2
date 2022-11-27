@@ -8,9 +8,16 @@ import java.util.List;
 public class Context {
     private static Context instance = new Context();//creates one
     private List<MyObserver<List<Course>>> observers = new ArrayList<>();
-    private List<Course> data = List.of();
+    private List<Course> courses;
 
-    private Context(){};//prevents others from calling
+    private Context(){
+        this.courses = List.of(
+                new Course("CS", "220", "Fundamentals of Computer Science", new HCTimeSlot(Weekday.MWF(), 1)),
+                new Course("MAT", "121", "Calculus I", new HCTimeSlot(List.of(Weekday.Tuesday), 7)),
+                new Course("FY", "101", "First Year", new UnassignedTimeSlot()),
+                new Course("FY2", "102", "First Year2", new UnassignedTimeSlot())
+                              );
+    };//prevents others from calling
 
     public static Context getInstance() {
         return instance;
@@ -18,13 +25,6 @@ public class Context {
     }
 
     public void getData() {
-        this.data = List.of(
-                new Course("CS", "220", "Fundamentals of Computer Science", new HCTimeSlot(Weekday.MWF(), 1)),
-                new Course("MAT", "121", "Calculus I", new HCTimeSlot(List.of(Weekday.Tuesday), 7)),
-                new Course("FY", "101", "First Year", new UnassignedTimeSlot()),
-                new Course("FY2", "102", "First Year2", new UnassignedTimeSlot())
-
-        );
         notifyObservers();
     }
 
@@ -33,6 +33,15 @@ public class Context {
     }
 
     void notifyObservers() {
-        observers.forEach((obj) -> obj.update(data));
+        observers.forEach((obj) -> obj.update(courses));
+    }
+
+    public Course getCourseWithId(Long courseId) {
+        for (Course course : courses) {
+            if (course.getCourseId() == courseId) {
+                return course;
+            }
+        }
+        throw new RuntimeException("Cannot find course with id: " + courseId);
     }
 }

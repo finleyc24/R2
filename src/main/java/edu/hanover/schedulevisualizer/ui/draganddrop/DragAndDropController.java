@@ -1,10 +1,5 @@
-package edu.hanover.schedulevisualizer.ui.controller;
+package edu.hanover.schedulevisualizer.ui.draganddrop;
 
-import edu.hanover.schedulevisualizer.core.Course;
-import edu.hanover.schedulevisualizer.core.TimeSlot;
-import edu.hanover.schedulevisualizer.ui.elements.CourseEntry;
-import edu.hanover.schedulevisualizer.ui.elements.DragSource;
-import edu.hanover.schedulevisualizer.ui.elements.DropTarget;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
@@ -12,6 +7,7 @@ import javafx.scene.input.TransferMode;
 
 public class DragAndDropController {
     private final static DragAndDropController instance = new DragAndDropController();
+    private DropExecutor dropExecutor = null;
 
     public static DragAndDropController getInstance() {
         return instance;
@@ -56,14 +52,8 @@ public class DragAndDropController {
         Dragboard db = event.getDragboard();
 
         if (db.hasString()) {
-            Object source = event.getGestureSource();
-            if (! (source instanceof CourseEntry)) return false;
-            CourseEntry courseEntry = (CourseEntry) source;
-            Course course = courseEntry.getCourse();
-            TimeSlot timeslot = target.getTimeslot();
-            course.setTimeslot(timeslot);
-            System.out.println("Dropped: " + course + timeslot);
-            return true;
+            System.out.println(db.getString());
+            return dropExecutor.executeTheDrop(target, db);
         }
         return false;
     }
@@ -110,5 +100,9 @@ public class DragAndDropController {
 
                     event.consume();
                 });
+    }
+
+    public void setDropExecutor(DropExecutor dropExecutor) {
+        this.dropExecutor = dropExecutor;
     }
 }
