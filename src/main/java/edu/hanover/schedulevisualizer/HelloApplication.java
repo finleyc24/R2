@@ -1,13 +1,10 @@
 package edu.hanover.schedulevisualizer;
 
 import edu.hanover.schedulevisualizer.core.Context;
-import edu.hanover.schedulevisualizer.core.Course;
-import edu.hanover.schedulevisualizer.core.TimeSlot;
 import edu.hanover.schedulevisualizer.ui.App;
 import edu.hanover.schedulevisualizer.ui.draganddrop.DragAndDropController;
 import edu.hanover.schedulevisualizer.ui.draganddrop.DropExecutor;
 import edu.hanover.schedulevisualizer.ui.draganddrop.DropTarget;
-import edu.hanover.schedulevisualizer.ui.elements.CourseEntry;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.scene.input.Dragboard;
@@ -39,10 +36,9 @@ public class HelloApplication extends Application {
         DragAndDropController.getInstance().setDropExecutor(new DropExecutor() {
             // Add methods to call on Context.getInstance()
             public boolean executeTheDrop(DropTarget target, Dragboard db) {
-                Course course = Context.getInstance().getCourseWithId(Long.valueOf(db.getString()));
-                TimeSlot timeslot = target.getTimeslot();
-                course.setTimeslot(timeslot);
-                System.out.println("Dropped: " + course + timeslot);
+                Long courseId = Long.valueOf(db.getString());
+                String timeslotId = target.getTimeslotId();
+                Context.getInstance().moveCourseToTimeslot(courseId, timeslotId);
                 return true;
             }
 

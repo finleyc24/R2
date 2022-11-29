@@ -44,8 +44,8 @@ public class UnassignedCourseList extends VBox implements MyObserver<List<Course
         setBorder(Border.stroke(Color.BLUEVIOLET));
     }
 
-    public TimeSlot getTimeslot() {
-        return new UnassignedTimeSlot();
+    public String getTimeslotId() {
+        return UnassignedTimeSlot.getInstance().getId();
     }
 
     public Node getNode() {

@@ -1,7 +1,6 @@
 package edu.hanover.schedulevisualizer.ui.elements;
 
 import edu.hanover.schedulevisualizer.core.Course;
-import edu.hanover.schedulevisualizer.core.TimeSlot;
 import edu.hanover.schedulevisualizer.ui.draganddrop.DragAndDropController;
 import edu.hanover.schedulevisualizer.ui.draganddrop.DropTarget;
 import javafx.fxml.FXML;
@@ -20,7 +19,7 @@ public class UITimeSlot extends VBox implements DropTarget {
 
     private DayPattern dayPattern;
     private final Border defaultBorder = Border.stroke(Color.BLACK);
-    private TimeSlot timeslot;
+    private String timeslotId;
 
     public UITimeSlot() {
         super();
@@ -35,10 +34,10 @@ public class UITimeSlot extends VBox implements DropTarget {
         }
     }
 
-    static UITimeSlot forDayPattern(DayPattern dayPattern, String slotID, TimeSlot timeslot) {
+    static UITimeSlot forDayPattern(DayPattern dayPattern, String slotID, String timeslotId) {
         UITimeSlot uiTimeSlot = new UITimeSlot();
         uiTimeSlot.setDayPattern(dayPattern);
-        uiTimeSlot.timeslot = timeslot;
+        uiTimeSlot.timeslotId = timeslotId;
         uiTimeSlot.setId(slotID);
         return uiTimeSlot;
     }
@@ -65,8 +64,8 @@ public class UITimeSlot extends VBox implements DropTarget {
         setBorder(Border.stroke(Color.BLUEVIOLET));
     }
 
-    public TimeSlot getTimeslot() {
-        return timeslot;
+    public String getTimeslotId() {
+        return timeslotId;
     }
 
     public void clearValidDropTarget() {

@@ -12,4 +12,6 @@ public interface TimeSlot {
     void ifAssignedSlotNumberDo(Consumer<Integer> f);
 
     void ifUnassignedSlotDo(Runnable runnable);
+
+    String getId();
 }

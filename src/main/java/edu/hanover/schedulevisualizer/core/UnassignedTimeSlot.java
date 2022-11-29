@@ -6,9 +6,16 @@ import java.util.function.Consumer;
 
 
 public class UnassignedTimeSlot implements TimeSlot {
+    private final static UnassignedTimeSlot instance = new UnassignedTimeSlot();
 
-    public UnassignedTimeSlot(){
+    private UnassignedTimeSlot(){}
 
+    public static UnassignedTimeSlot getInstance() {
+        return instance;
+    }
+
+    public String getId() {
+        return "-";
     }
 
     public List<Weekday> getWeekdayList() {

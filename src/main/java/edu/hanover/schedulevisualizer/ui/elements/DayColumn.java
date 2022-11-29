@@ -2,7 +2,6 @@ package edu.hanover.schedulevisualizer.ui.elements;
 
 import edu.hanover.schedulevisualizer.core.Course;
 import edu.hanover.schedulevisualizer.core.HCTimeSlot;
-import edu.hanover.schedulevisualizer.core.TimeSlot;
 import edu.hanover.schedulevisualizer.core.Weekday;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -62,7 +61,7 @@ public class DayColumn extends VBox {
         for (int slotNum = 1; slotNum <= dayPattern.numSlots; slotNum++) {
             int offsetTimeslot = slotNum + dayPattern.getOffset();
             HCTimeSlot timeslot =  new HCTimeSlot(List.of(day), offsetTimeslot);
-            UITimeSlot uiTimeSlot = UITimeSlot.forDayPattern(dayPattern, makeSlotID(slotNum), timeslot);
+            UITimeSlot uiTimeSlot = UITimeSlot.forDayPattern(dayPattern, makeSlotID(slotNum), timeslot.getId());
             getChildren().add(uiTimeSlot);
             timeSlots.put(offsetTimeslot, uiTimeSlot);
 

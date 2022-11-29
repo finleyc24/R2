@@ -11,6 +11,12 @@ public class HCTimeSlot implements TimeSlot {
         this.slotnum = slotnum;
     }
 
+    public String getId() {
+        String weekdaysString = "";
+        for (Weekday w : weekdayList) { weekdaysString += w; }
+        return weekdaysString + "-" + slotnum;
+    }
+
     public DayTime getStartTime() {
         return switch (slotnum) {
             case 1 -> new DayTime(8, 0);
