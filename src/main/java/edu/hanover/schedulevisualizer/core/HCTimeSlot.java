@@ -2,7 +2,7 @@ package edu.hanover.schedulevisualizer.core;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class HCTimeSlot implements TimeSlot {
+class HCTimeSlot implements TimeSlot {
     private List<Weekday> weekdayList;
     public int slotnum;
 

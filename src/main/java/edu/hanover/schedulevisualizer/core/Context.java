@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class Context {
     private static Context instance = new Context();//creates one
-    private static Map<String, TimeSlot> createdTimeslots = new HashMap<>();
+    private Map<String, TimeSlot> createdTimeslots = new HashMap<>();
     private List<MyObserver<List<Course>>> observers = new ArrayList<>();
     private List<Course> courses;
 
@@ -23,15 +23,15 @@ public class Context {
                               );
     }
 
-    private static TimeSlot makeUnassignedTimeslot() {
+    public TimeSlot makeUnassignedTimeslot() {
         return addIfNeededThenReturn(UnassignedTimeSlot.getInstance());
     }
 
-    private static TimeSlot makeHCTimeSlot(List<Weekday> Tuesday, int slotnum) {
+    public TimeSlot makeHCTimeSlot(List<Weekday> Tuesday, int slotnum) {
         return addIfNeededThenReturn(new HCTimeSlot(Tuesday, slotnum));
     }
 
-    private static TimeSlot addIfNeededThenReturn(TimeSlot timeSlot) {
+    private TimeSlot addIfNeededThenReturn(TimeSlot timeSlot) {
         if (createdTimeslots.containsKey(timeSlot.getId())) {
             return createdTimeslots.get(timeSlot.getId());
         }
@@ -69,6 +69,8 @@ public class Context {
 
     public TimeSlot getTimeslotWithId(String timeslotId) {
         // TODO: Add error-checking if id doesn't exist
+        if (!createdTimeslots.containsKey(timeslotId))
+            throw new RuntimeException("Should not have a timeslot id that is not stored");
         return createdTimeslots.get(timeslotId);
     }
 

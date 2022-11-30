@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.function.Consumer;
 
 
-public class UnassignedTimeSlot implements TimeSlot {
+class UnassignedTimeSlot implements TimeSlot {
     private final static UnassignedTimeSlot instance = new UnassignedTimeSlot();
 
-    private UnassignedTimeSlot(){}
+    UnassignedTimeSlot(){}
 
     public static UnassignedTimeSlot getInstance() {
         return instance;

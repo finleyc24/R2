@@ -1,8 +1,6 @@
 package edu.hanover.schedulevisualizer.ui.elements;
 
-import edu.hanover.schedulevisualizer.core.Course;
-import edu.hanover.schedulevisualizer.core.HCTimeSlot;
-import edu.hanover.schedulevisualizer.core.Weekday;
+import edu.hanover.schedulevisualizer.core.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -60,7 +58,8 @@ public class DayColumn extends VBox {
     private void addSlots(DayPattern dayPattern) {
         for (int slotNum = 1; slotNum <= dayPattern.numSlots; slotNum++) {
             int offsetTimeslot = slotNum + dayPattern.getOffset();
-            HCTimeSlot timeslot =  new HCTimeSlot(List.of(day), offsetTimeslot);
+            // TODO: Not right way, try to use drop executor instead
+            TimeSlot timeslot = Context.getInstance().makeHCTimeSlot(List.of(day), offsetTimeslot);
             UITimeSlot uiTimeSlot = UITimeSlot.forDayPattern(dayPattern, makeSlotID(slotNum), timeslot.getId());
             getChildren().add(uiTimeSlot);
             timeSlots.put(offsetTimeslot, uiTimeSlot);

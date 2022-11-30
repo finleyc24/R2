@@ -1,8 +1,7 @@
 package edu.hanover.schedulevisualizer.ui.elements;
 
+import edu.hanover.schedulevisualizer.core.Context;
 import edu.hanover.schedulevisualizer.core.Course;
-import edu.hanover.schedulevisualizer.core.TimeSlot;
-import edu.hanover.schedulevisualizer.core.UnassignedTimeSlot;
 import edu.hanover.schedulevisualizer.observable.MyObserver;
 import edu.hanover.schedulevisualizer.ui.draganddrop.DragAndDropController;
 import edu.hanover.schedulevisualizer.ui.draganddrop.DropTarget;
@@ -45,7 +44,7 @@ public class UnassignedCourseList extends VBox implements MyObserver<List<Course
     }
 
     public String getTimeslotId() {
-        return UnassignedTimeSlot.getInstance().getId();
+        return Context.getInstance().makeUnassignedTimeslot().getId();
     }
 
     public Node getNode() {
