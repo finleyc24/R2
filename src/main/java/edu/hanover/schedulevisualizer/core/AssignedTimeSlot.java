@@ -63,10 +63,6 @@ class AssignedTimeSlot implements TimeSlot {
         f.accept(slotnum);
     }
 
-    public void ifUnAssignedSlotNumberDo(Runnable f){
-        // does nothing
-    }
-
 
     public void ifUnassignedSlotDo(Runnable runnable) {
     }

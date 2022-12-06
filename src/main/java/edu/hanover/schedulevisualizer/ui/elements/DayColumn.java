@@ -45,10 +45,6 @@ public class DayColumn extends VBox {
                         (Integer slotnum) -> timeSlots.get(slotnum).addCourse(course));
     }
 
-    public Weekday getDay() {
-        return day;
-    }
-
     public void setDay(Weekday day) {
         this.day = day;
         label.setText(day.name());
