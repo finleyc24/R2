@@ -59,7 +59,7 @@ public class DayColumn extends VBox {
         for (int slotNum = 1; slotNum <= dayPattern.numSlots; slotNum++) {
             int offsetTimeslot = slotNum + dayPattern.getOffset();
             // TODO: Not right way, try to use drop executor instead
-            TimeSlot timeslot = Context.getInstance().makeHCTimeSlot(List.of(day), offsetTimeslot);
+            TimeSlot timeslot = Context.getInstance().makeAssignedTimeSlot(List.of(day), offsetTimeslot);
             UITimeSlot uiTimeSlot = UITimeSlot.forDayPattern(dayPattern, makeSlotID(slotNum), timeslot.getId());
             getChildren().add(uiTimeSlot);
             timeSlots.put(offsetTimeslot, uiTimeSlot);

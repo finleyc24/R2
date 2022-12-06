@@ -1,7 +1,6 @@
 package edu.hanover.schedulevisualizer.core;
 
 import edu.hanover.schedulevisualizer.observable.MyObserver;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,8 +15,8 @@ public class Context {
 
     private Context(){
         this.courses = List.of(
-                new Course("CS", "220", "Fundamentals of Computer Science", makeHCTimeSlot(Weekday.MWF(), 1)),
-                new Course("MAT", "121", "Calculus I", makeHCTimeSlot(List.of(Weekday.Tuesday), 7)),
+                new Course("CS", "220", "Fundamentals of Computer Science", makeAssignedTimeSlot(Weekday.MWF(), 1)),
+                new Course("MAT", "121", "Calculus I", makeAssignedTimeSlot(List.of(Weekday.Tuesday), 7)),
                 new Course("FY", "101", "First Year", makeUnassignedTimeslot()),
                 new Course("FY2", "102", "First Year2", makeUnassignedTimeslot())
                               );
@@ -27,8 +26,8 @@ public class Context {
         return addIfNeededThenReturn(UnassignedTimeSlot.getInstance());
     }
 
-    public TimeSlot makeHCTimeSlot(List<Weekday> Tuesday, int slotnum) {
-        return addIfNeededThenReturn(new HCTimeSlot(Tuesday, slotnum));
+    public TimeSlot makeAssignedTimeSlot(List<Weekday> Tuesday, int slotnum) {
+        return addIfNeededThenReturn(new AssignedTimeSlot(Tuesday, slotnum));
     }
 
     private TimeSlot addIfNeededThenReturn(TimeSlot timeSlot) {

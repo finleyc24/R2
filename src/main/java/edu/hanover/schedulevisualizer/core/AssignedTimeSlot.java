@@ -2,11 +2,11 @@ package edu.hanover.schedulevisualizer.core;
 import java.util.List;
 import java.util.function.Consumer;
 
-class HCTimeSlot implements TimeSlot {
+class AssignedTimeSlot implements TimeSlot {
     private List<Weekday> weekdayList;
     public int slotnum;
 
-    public HCTimeSlot(List<Weekday> weekdayList, int slotnum){
+    public AssignedTimeSlot(List<Weekday> weekdayList, int slotnum){
         this.weekdayList = weekdayList;
         this.slotnum = slotnum;
     }
@@ -53,7 +53,7 @@ class HCTimeSlot implements TimeSlot {
     }
 
     public boolean overlaps(TimeSlot otherSlot) {
-        HCTimeSlot hcOtherSlot = (HCTimeSlot) otherSlot;
+        AssignedTimeSlot hcOtherSlot = (AssignedTimeSlot) otherSlot;
         return hcOtherSlot.slotnum == slotnum &&
                 hasDaysInCommonWith(hcOtherSlot);
 
@@ -71,7 +71,7 @@ class HCTimeSlot implements TimeSlot {
     public void ifUnassignedSlotDo(Runnable runnable) {
     }
 
-    private boolean hasDaysInCommonWith(HCTimeSlot hcOtherSlot) {
+    private boolean hasDaysInCommonWith(AssignedTimeSlot hcOtherSlot) {
         for(Weekday day1 : weekdayList) {
             if (hcOtherSlot.weekdayList.contains(day1)) return true;
         }
