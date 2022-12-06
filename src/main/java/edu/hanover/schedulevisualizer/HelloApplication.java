@@ -3,7 +3,7 @@ package edu.hanover.schedulevisualizer;
 import edu.hanover.schedulevisualizer.core.Context;
 import edu.hanover.schedulevisualizer.ui.App;
 import edu.hanover.schedulevisualizer.ui.draganddrop.DragAndDropController;
-import edu.hanover.schedulevisualizer.ui.draganddrop.DropExecutor;
+import edu.hanover.schedulevisualizer.ui.draganddrop.DropPerformer;
 import edu.hanover.schedulevisualizer.ui.draganddrop.DropTarget;
 import javafx.application.Application;
 import javafx.scene.image.Image;
@@ -33,7 +33,7 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        DragAndDropController.getInstance().setDropExecutor(new DropExecutor() {
+        DragAndDropController.getInstance().setDropPerformer(new DropPerformer() {
             // Add methods to call on Context.getInstance()
             public boolean executeTheDrop(DropTarget target, Dragboard db) {
                 Long courseId = Long.valueOf(db.getString());

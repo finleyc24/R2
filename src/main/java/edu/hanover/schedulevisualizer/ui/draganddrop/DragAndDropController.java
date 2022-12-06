@@ -7,7 +7,7 @@ import javafx.scene.input.TransferMode;
 
 public class DragAndDropController {
     private final static DragAndDropController instance = new DragAndDropController();
-    private DropExecutor dropExecutor = null;
+    private DropPerformer dropPerformer = null;
 
     public static DragAndDropController getInstance() {
         return instance;
@@ -53,7 +53,7 @@ public class DragAndDropController {
 
         if (db.hasString()) {
             System.out.println(db.getString());
-            return dropExecutor.executeTheDrop(target, db);
+            return dropPerformer.executeTheDrop(target, db);
         }
         return false;
     }
@@ -102,7 +102,7 @@ public class DragAndDropController {
                 });
     }
 
-    public void setDropExecutor(DropExecutor dropExecutor) {
-        this.dropExecutor = dropExecutor;
+    public void setDropPerformer(DropPerformer dropPerformer) {
+        this.dropPerformer = dropPerformer;
     }
 }
