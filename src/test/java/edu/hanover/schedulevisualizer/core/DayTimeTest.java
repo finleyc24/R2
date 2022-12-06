@@ -1,4 +1,5 @@
 package edu.hanover.schedulevisualizer.core;
+import org.jetbrains.annotations.NotNull;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -13,13 +14,19 @@ public class DayTimeTest {
 
     @Test
     public void DayTimesWithSameHoursMinutesAreEqual() {
-        DayTime dayTime1 = new DayTime(4,15);
-        DayTime dayTime2 = new DayTime(4, 15);
-        DayTime dayTime3 = new DayTime(5,15);
-        DayTime dayTime4 = new DayTime(4,25);
+        DayTime dayTime1 = createDayTime(4, 15);
+        DayTime dayTime2 = createDayTime(4, 15);
+        DayTime dayTime3 = createDayTime(5, 15);
+        DayTime dayTime4 = createDayTime(4, 25);
         assertEquals(dayTime1, dayTime2);
         assertNotEquals(dayTime1, dayTime3);
         assertNotEquals(dayTime1,dayTime4);
+    }
+
+    @NotNull
+    private DayTime createDayTime(int hours, int minutes) {
+        DayTime dayTime = new DayTime(hours, minutes);
+        return dayTime;
     }
 
     private void assertProperOrder(DayTime earlierTime, DayTime laterTime) {
@@ -56,7 +63,7 @@ public class DayTimeTest {
     }
 
     private void createDayTimeAndCheckFields(int hours, int minutes) {
-        DayTime dayTime = new DayTime(hours, minutes);
+        DayTime dayTime = createDayTime(hours, minutes);
         assertEquals(hours, dayTime.hours);
         assertEquals(minutes, dayTime.minutes);
     }
